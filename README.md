@@ -4,8 +4,6 @@
   <img src="https://i.imgur.com/MvsT3qI.png" alt="Hello World! of Docker"/>
 </p>
 
-<a href="https://travis-ci.com/gauthamp10/dockerfile-boilerplates"><img src="https://img.icons8.com/color/48/000000/travis-ci.png"/></a> [![Build Status](https://travis-ci.com/gauthamp10/dockerfile-boilerplates.svg?token=GyGbkGV9nLfsTamsNpS4&branch=master)](https://travis-ci.com/gauthamp10/dockerfile-boilerplates) ![GitHub repo size](https://img.shields.io/github/repo-size/gauthamp10/dockerfile-boilerplates) ![visitors](https://visitor-badge.glitch.me/badge?page_id=gauthamp10.dockerfile-boilerplates)
-
 Docker boilerplates / templates for most common progamming languages. Like a *Hello World!* but for  docker images.
 
 ---
@@ -23,151 +21,49 @@ Docker is service which provides OS-level virtualization with such ease and comp
 To know more: [docker.com](https://www.docker.com/)
 
 
-## __Instructions__
 
-__Where do I start?__
-
-✌️ Two Choices.
-
-__#1: Pull the image from dockerhub and run__
-
-```
-
-  - docker pull gauthamp10/language-name
-  - docker run --rm gauthamp10/language-name
-  For web app
-  - docker run -p 5000:5000 --rm -v /path/to/volume/:/app language-name
-
-  Example:
-
-  - docker pull gauthamp10/java
-  - docker run --rm gauthamp10/java
-
-```
-To add the image in your Dockerfile:
-
-```
-FROM gauthamp10/language-name:latest
-
-Example:
-
-FROM gauthamp10/java
-
-```
-
-__#2: Build your own version from the template *Dockerfile*__
-
-At first edit the Dockerfile as per your liking 
-
-```
-
-  - docker build -t language-name .
-  - docker run --rm language-name
-
-Example:
-
-  - docker build -t java .
-  - docker run --rm java
-
-```
-
-__How can I upload my image to docker hub?__
-
-Create an account on [dockerhub](https://hub.docker.com/) and then
-
-```
-
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - docker tag language-name $DOCKER_USERNAME/language-name:$BUILD_VERSION
-  - docker push $DOCKER_USERNAME/language-name:$BUILD_VERSION
-
-  Example:
-
-  - docker login -u gauthamp10 -p **********
-  - docker tag java gauthamp10/java:1.0
-  - docker push gauthamp10/java:1.0
-
-
-```
-
-Play around with your custom build by
-
-```
-
-  - docker pull $DOCKER_USERNAME/language-name:latest
-
-  Example:
-
-  - docker pull gauthamp10/java:latest
-
-```
 
 ## __Overview Of Dockerfile__
 
 |     Image Name     |     Language Version     |     Base Image     |     Layers      |     Image Size     |
 | :--------------- | :--------------: | :---------------: | :---------------: | ------------------------------------------: |
-| [gauthamp10/ada](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/ada/Dockerfile)        |     10.1.0-1     |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/ada.svg)](https://microbadger.com/images/gauthamp10/ada)   |             [![](https://img.shields.io/badge/size-492MB-orange)](https://img.shields.io/badge/size-492MB-orange) |
-| [gauthamp10/bash](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/bash/Dockerfile)       |      4.4.20      |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/bash.svg)](https://microbadger.com/images/gauthamp10/bash)   | [![](https://img.shields.io/badge/size-5.61MB-brightgreen)](https://img.shields.io/badge/size-5.61MB-brightgreen) |
-| [gauthamp10/c-build](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/c/Dockerfile)          |     9.3.0-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/c-build.svg)](https://microbadger.com/images/gauthamp10/c-build)   |             [![](https://img.shields.io/badge/size-181MB-yellow)](https://img.shields.io/badge/size-181MB-yellow) |
-| [gauthamp10/clsip](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/clisp/Dockerfile)      |      2.49.92     |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/clisp.svg)](https://microbadger.com/images/gauthamp10/clisp)   |   [![](https://img.shields.io/badge/size-130MB-yellowgreen)](https://img.shields.io/badge/size-130MB-yellowgreen) |
-| [gauthamp10/cpp](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/cpp/Dockerfile)        |     9.3.0-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/cpp.svg)](https://microbadger.com/images/gauthamp10/cpp)   |             [![](https://img.shields.io/badge/size-181MB-yellow)](https://img.shields.io/badge/size-181MB-yellow) |
-| [gauthamp10/dart](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/dart/Dockerfile)       |       2.8.2      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/dart.svg)](https://microbadger.com/images/gauthamp10/dart)   |                   [![](https://img.shields.io/badge/size-628MB-red)](https://img.shields.io/badge/size-628MB-red) |
-| [gauthamp10/deno](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/deno/Dockerfile)       |       1.0.5      |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/deno.svg)](https://microbadger.com/images/gauthamp10/deno)   |                   [![](https://img.shields.io/badge/size-87.3MB-green)](https://img.shields.io/badge/size-87.3MB-green) |
-| [gauthamp10/elixir](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/elixir/Dockerfile)     |     1.10.3-r0    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/elixir.svg)](https://microbadger.com/images/gauthamp10/elixir)   |     [![](https://img.shields.io/badge/size-40MB-brightgreen)](https://img.shields.io/badge/size-40MB-brightgreen) |
-| [gauthamp10/erlang](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/erlang/Dockerfile)     |      23.0-r0     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/erlang.svg)](https://microbadger.com/images/gauthamp10/erlang)   | [![](https://img.shields.io/badge/size-18.4MB-brightgreen)](https://img.shields.io/badge/size-18.4MB-brightgreen) |
-| [gauthamp10/fortran](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/fortran/Dockerfile)    |     9.3.0-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/fortran.svg)](https://microbadger.com/images/gauthamp10/fortran)   |             [![](https://img.shields.io/badge/size-210MB-yellow)](https://img.shields.io/badge/size-210MB-yellow) |
-| [gauthamp10/go-build](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/go/Dockerfile)         |    1.14    |   golang:1.14 |   [![](https://images.microbadger.com/badges/image/gauthamp10/go-build.svg)](https://microbadger.com/images/gauthamp10/go-build)   |             [![](https://img.shields.io/badge/size-810MB-red)](https://img.shields.io/badge/size-810MB-red) |
-| [gauthamp10/haskell](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/haskell/Dockerfile)    |     8.8.3-r0     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/haskell.svg)](https://microbadger.com/images/gauthamp10/haskell)   |                 [![](https://img.shields.io/badge/size-1.08GB-red)](https://img.shields.io/badge/size-1.08GB-red) |
-| [gauthamp10/icon](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/icon/Dockerfile)       |       v951       |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/icon.svg)](https://microbadger.com/images/gauthamp10/icon)   |   [![](https://img.shields.io/badge/size-119MB-yellowgreen)](https://img.shields.io/badge/size-119MB-yellowgreen) |
-| [gauthamp10/java](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/java/Dockerfile)       |     openjdk8     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/java.svg)](https://microbadger.com/images/gauthamp10/java)   |   [![](https://img.shields.io/badge/size-123MB-yellowgreen)](https://img.shields.io/badge/size-123MB-yellowgreen) |
-| [gauthamp10/javascript](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/javascript/Dockerfile) | 1.18.0-r0(nginx) |    nginx:alpine|   [![](https://images.microbadger.com/badges/image/gauthamp10/javascript.svg)](https://microbadger.com/images/gauthamp10/javascript)   | [![](https://img.shields.io/badge/size-19.9MB-brightgreen)](https://img.shields.io/badge/size-19.9MB-brightgreen) |
-| [gauthamp10/julia](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/julia/Dockerfile)      |       1.4.1      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/julia.svg)](https://microbadger.com/images/gauthamp10/julia)   |             [![](https://img.shields.io/badge/size-469MB-orange)](https://img.shields.io/badge/size-469MB-orange) |
-| [gauthamp10/kotlin](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/kotlin/Dockerfile)     |      v1.3.72     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/kotlin.svg)](https://microbadger.com/images/gauthamp10/kotlin)   |           [![](https://img.shields.io/badge/size-362MB-orange)](https://img.shields.io/badge/size-326MB-orange) |
-| [gauthamp10/lisp](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/lisp/Dockerfile)       |      6.24-3      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/lisp.svg)](https://microbadger.com/images/gauthamp10/lisp)   |   [![](https://img.shields.io/badge/size-130MB-yellowgreen)](https://img.shields.io/badge/size-130MB-yellowgreen) |
-| [gauthamp10/lua](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/lua/Dockerfile)        |       5.2.4      |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/lua.svg)](https://microbadger.com/images/gauthamp10/lua)   | [![](https://img.shields.io/badge/size-6.32MB-brightgreen)](https://img.shields.io/badge/size-6.32MB-brightgreen) |
-| [gauthamp10/node](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/node/Dockerfile)       |    12.16.3-r0    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/node.svg)](https://microbadger.com/images/gauthamp10/node)   | [![](https://img.shields.io/badge/size-37.4MB-brightgreen)](https://img.shields.io/badge/size-37.4MB-brightgreen) |
-| [gauthamp10/objc](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/objective-c/Dockerfile)       |     4.9.3.0-1    |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/objc.svg)](https://microbadger.com/images/gauthamp10/objc)   |                   [![](https://img.shields.io/badge/size-917MB-red)](https://img.shields.io/badge/size-917MB-red) |
-| [gauthamp10/perl](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/perl/Dockerfile)       |     5.30.2-r0    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/perl.svg)](https://microbadger.com/images/gauthamp10/perl)   | [![](https://img.shields.io/badge/size-39.8MB-brightgreen)](https://img.shields.io/badge/size-39.8MB-brightgreen) |
-| [gauthamp10/php](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/php/Dockerfile)        |        7.4       | php:latest-apache |   [![](https://images.microbadger.com/badges/image/gauthamp10/php.svg)](https://microbadger.com/images/gauthamp10/php) |             [![](https://img.shields.io/badge/size-414MB-orange)](https://img.shields.io/badge/size-414MB-orange) |
-| [gauthamp10/python](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/python/worker/Dockerfile)     |       3.6      |   python:3.6-slim|   [![](https://images.microbadger.com/badges/image/gauthamp10/python.svg)](https://microbadger.com/images/gauthamp10/python)   |   [![](https://img.shields.io/badge/size-156MB-yellowgreen)](https://img.shields.io/badge/size-156MB-yellowgreen) |
-| [gauthamp10/pythonweb](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/python/web/Dockerfile)  |       3.6     |   python:3.6-slim|   [![](https://images.microbadger.com/badges/image/gauthamp10/pythonweb.svg)](https://microbadger.com/images/gauthamp10/pythonweb)   |   [![](https://img.shields.io/badge/size-165MB-yellowgreen)](https://img.shields.io/badge/size-165MB-yellowgreen) |
-| [gauthamp10/r-build](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/r/Dockerfile)          |     3.6.3-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/r-build.svg)](https://microbadger.com/images/gauthamp10/r-build)   |   [![](https://img.shields.io/badge/size-122MB-yellowgreen)](https://img.shields.io/badge/size-122MB-yellowgreen) |
-| [gauthamp10/rust](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/rust/Dockerfile)       |     1.43.1-r1    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/rust.svg)](https://microbadger.com/images/gauthamp10/rust)   |                   [![](https://img.shields.io/badge/size-611MB-red)](https://img.shields.io/badge/size-611MB-red) |
-| [gauthamp10/scala](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/scala/Dockerfile)      |      2.13.2      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/scala.svg)](https://microbadger.com/images/gauthamp10/scala)   |                   [![](https://img.shields.io/badge/size-562MB-red)](https://img.shields.io/badge/size-562MB-red) |
-| [gauthamp10/swift](https://github.com/gauthamp10/dockerfile-boilerplates/blob/master/swift/Dockerfile)      |      5.2.3r      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/gauthamp10/swift.svg)](https://microbadger.com/images/gauthamp10/swift)   |                 [![](https://img.shields.io/badge/size-2.39GB-red)](https://img.shields.io/badge/size-2.39GB-red) |
+| [Dockplate/ada](https://github.com/Dockplate/dockerfiles/blob/master/ada/Dockerfile)        |     10.1.0-1     |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/ada.svg)](https://microbadger.com/images/Dockplate/ada)   |             [![](https://img.shields.io/badge/size-492MB-orange)](https://img.shields.io/badge/size-492MB-orange) |
+| [Dockplate/bash](https://github.com/Dockplate/dockerfiles/blob/master/bash/Dockerfile)       |      4.4.20      |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/bash.svg)](https://microbadger.com/images/Dockplate/bash)   | [![](https://img.shields.io/badge/size-5.61MB-brightgreen)](https://img.shields.io/badge/size-5.61MB-brightgreen) |
+| [Dockplate/c-build](https://github.com/Dockplate/dockerfiles/blob/master/c/Dockerfile)          |     9.3.0-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/c-build.svg)](https://microbadger.com/images/Dockplate/c-build)   |             [![](https://img.shields.io/badge/size-181MB-yellow)](https://img.shields.io/badge/size-181MB-yellow) |
+| [Dockplate/clsip](https://github.com/Dockplate/dockerfiles/blob/master/clisp/Dockerfile)      |      2.49.92     |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/clisp.svg)](https://microbadger.com/images/Dockplate/clisp)   |   [![](https://img.shields.io/badge/size-130MB-yellowgreen)](https://img.shields.io/badge/size-130MB-yellowgreen) |
+| [Dockplate/cpp](https://github.com/Dockplate/dockerfiles/blob/master/cpp/Dockerfile)        |     9.3.0-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/cpp.svg)](https://microbadger.com/images/Dockplate/cpp)   |             [![](https://img.shields.io/badge/size-181MB-yellow)](https://img.shields.io/badge/size-181MB-yellow) |
+| [Dockplate/dart](https://github.com/Dockplate/dockerfiles/blob/master/dart/Dockerfile)       |       2.8.2      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/dart.svg)](https://microbadger.com/images/Dockplate/dart)   |                   [![](https://img.shields.io/badge/size-628MB-red)](https://img.shields.io/badge/size-628MB-red) |
+| [Dockplate/deno](https://github.com/Dockplate/dockerfiles/blob/master/deno/Dockerfile)       |       1.0.5      |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/deno.svg)](https://microbadger.com/images/Dockplate/deno)   |                   [![](https://img.shields.io/badge/size-87.3MB-green)](https://img.shields.io/badge/size-87.3MB-green) |
+| [Dockplate/elixir](https://github.com/Dockplate/dockerfiles/blob/master/elixir/Dockerfile)     |     1.10.3-r0    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/elixir.svg)](https://microbadger.com/images/Dockplate/elixir)   |     [![](https://img.shields.io/badge/size-40MB-brightgreen)](https://img.shields.io/badge/size-40MB-brightgreen) |
+| [Dockplate/erlang](https://github.com/Dockplate/dockerfiles/blob/master/erlang/Dockerfile)     |      23.0-r0     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/erlang.svg)](https://microbadger.com/images/Dockplate/erlang)   | [![](https://img.shields.io/badge/size-18.4MB-brightgreen)](https://img.shields.io/badge/size-18.4MB-brightgreen) |
+| [Dockplate/fortran](https://github.com/Dockplate/dockerfiles/blob/master/fortran/Dockerfile)    |     9.3.0-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/fortran.svg)](https://microbadger.com/images/Dockplate/fortran)   |             [![](https://img.shields.io/badge/size-210MB-yellow)](https://img.shields.io/badge/size-210MB-yellow) |
+| [Dockplate/go-build](https://github.com/Dockplate/dockerfiles/blob/master/go/Dockerfile)         |    1.14    |   golang:1.14 |   [![](https://images.microbadger.com/badges/image/Dockplate/go-build.svg)](https://microbadger.com/images/Dockplate/go-build)   |             [![](https://img.shields.io/badge/size-810MB-red)](https://img.shields.io/badge/size-810MB-red) |
+| [Dockplate/haskell](https://github.com/Dockplate/dockerfiles/blob/master/haskell/Dockerfile)    |     8.8.3-r0     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/haskell.svg)](https://microbadger.com/images/Dockplate/haskell)   |                 [![](https://img.shields.io/badge/size-1.08GB-red)](https://img.shields.io/badge/size-1.08GB-red) |
+| [Dockplate/icon](https://github.com/Dockplate/dockerfiles/blob/master/icon/Dockerfile)       |       v951       |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/icon.svg)](https://microbadger.com/images/Dockplate/icon)   |   [![](https://img.shields.io/badge/size-119MB-yellowgreen)](https://img.shields.io/badge/size-119MB-yellowgreen) |
+| [Dockplate/java](https://github.com/Dockplate/dockerfiles/blob/master/java/Dockerfile)       |     openjdk8     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/java.svg)](https://microbadger.com/images/Dockplate/java)   |   [![](https://img.shields.io/badge/size-123MB-yellowgreen)](https://img.shields.io/badge/size-123MB-yellowgreen) |
+| [Dockplate/javascript](https://github.com/Dockplate/dockerfiles/blob/master/javascript/Dockerfile) | 1.18.0-r0(nginx) |    nginx:alpine|   [![](https://images.microbadger.com/badges/image/Dockplate/javascript.svg)](https://microbadger.com/images/Dockplate/javascript)   | [![](https://img.shields.io/badge/size-19.9MB-brightgreen)](https://img.shields.io/badge/size-19.9MB-brightgreen) |
+| [Dockplate/julia](https://github.com/Dockplate/dockerfiles/blob/master/julia/Dockerfile)      |       1.4.1      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/julia.svg)](https://microbadger.com/images/Dockplate/julia)   |             [![](https://img.shields.io/badge/size-469MB-orange)](https://img.shields.io/badge/size-469MB-orange) |
+| [Dockplate/kotlin](https://github.com/Dockplate/dockerfiles/blob/master/kotlin/Dockerfile)     |      v1.3.72     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/kotlin.svg)](https://microbadger.com/images/Dockplate/kotlin)   |           [![](https://img.shields.io/badge/size-362MB-orange)](https://img.shields.io/badge/size-326MB-orange) |
+| [Dockplate/lisp](https://github.com/Dockplate/dockerfiles/blob/master/lisp/Dockerfile)       |      6.24-3      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/lisp.svg)](https://microbadger.com/images/Dockplate/lisp)   |   [![](https://img.shields.io/badge/size-130MB-yellowgreen)](https://img.shields.io/badge/size-130MB-yellowgreen) |
+| [Dockplate/lua](https://github.com/Dockplate/dockerfiles/blob/master/lua/Dockerfile)        |       5.2.4      |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/lua.svg)](https://microbadger.com/images/Dockplate/lua)   | [![](https://img.shields.io/badge/size-6.32MB-brightgreen)](https://img.shields.io/badge/size-6.32MB-brightgreen) |
+| [Dockplate/node](https://github.com/Dockplate/dockerfiles/blob/master/node/Dockerfile)       |    12.16.3-r0    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/node.svg)](https://microbadger.com/images/Dockplate/node)   | [![](https://img.shields.io/badge/size-37.4MB-brightgreen)](https://img.shields.io/badge/size-37.4MB-brightgreen) |
+| [Dockplate/objc](https://github.com/Dockplate/dockerfiles/blob/master/objective-c/Dockerfile)       |     4.9.3.0-1    |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/objc.svg)](https://microbadger.com/images/Dockplate/objc)   |                   [![](https://img.shields.io/badge/size-917MB-red)](https://img.shields.io/badge/size-917MB-red) |
+| [Dockplate/perl](https://github.com/Dockplate/dockerfiles/blob/master/perl/Dockerfile)       |     5.30.2-r0    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/perl.svg)](https://microbadger.com/images/Dockplate/perl)   | [![](https://img.shields.io/badge/size-39.8MB-brightgreen)](https://img.shields.io/badge/size-39.8MB-brightgreen) |
+| [Dockplate/php](https://github.com/Dockplate/dockerfiles/blob/master/php/Dockerfile)        |        7.4       | php:latest-apache |   [![](https://images.microbadger.com/badges/image/Dockplate/php.svg)](https://microbadger.com/images/Dockplate/php) |             [![](https://img.shields.io/badge/size-414MB-orange)](https://img.shields.io/badge/size-414MB-orange) |
+| [Dockplate/python](https://github.com/Dockplate/dockerfiles/blob/master/python/worker/Dockerfile)     |       3.6      |   python:3.6-slim|   [![](https://images.microbadger.com/badges/image/Dockplate/python.svg)](https://microbadger.com/images/Dockplate/python)   |   [![](https://img.shields.io/badge/size-156MB-yellowgreen)](https://img.shields.io/badge/size-156MB-yellowgreen) |
+| [Dockplate/pythonweb](https://github.com/Dockplate/dockerfiles/blob/master/python/web/Dockerfile)  |       3.6     |   python:3.6-slim|   [![](https://images.microbadger.com/badges/image/Dockplate/pythonweb.svg)](https://microbadger.com/images/Dockplate/pythonweb)   |   [![](https://img.shields.io/badge/size-165MB-yellowgreen)](https://img.shields.io/badge/size-165MB-yellowgreen) |
+| [Dockplate/r-build](https://github.com/Dockplate/dockerfiles/blob/master/r/Dockerfile)          |     3.6.3-r2     |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/r-build.svg)](https://microbadger.com/images/Dockplate/r-build)   |   [![](https://img.shields.io/badge/size-122MB-yellowgreen)](https://img.shields.io/badge/size-122MB-yellowgreen) |
+| [Dockplate/rust](https://github.com/Dockplate/dockerfiles/blob/master/rust/Dockerfile)       |     1.43.1-r1    |   alpine:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/rust.svg)](https://microbadger.com/images/Dockplate/rust)   |                   [![](https://img.shields.io/badge/size-611MB-red)](https://img.shields.io/badge/size-611MB-red) |
+| [Dockplate/scala](https://github.com/Dockplate/dockerfiles/blob/master/scala/Dockerfile)      |      2.13.2      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/scala.svg)](https://microbadger.com/images/Dockplate/scala)   |                   [![](https://img.shields.io/badge/size-562MB-red)](https://img.shields.io/badge/size-562MB-red) |
+| [Dockplate/swift](https://github.com/Dockplate/dockerfiles/blob/master/swift/Dockerfile)      |      5.2.3r      |   ubuntu:latest |   [![](https://images.microbadger.com/badges/image/Dockplate/swift.svg)](https://microbadger.com/images/Dockplate/swift)   |                 [![](https://img.shields.io/badge/size-2.39GB-red)](https://img.shields.io/badge/size-2.39GB-red) |
 
-
-
-## __Note:__ 
-
-This repo is tested with automated builds on commit with TRAVIS-CI. Some image meta data is being pulled using Microbadger.
 
 ## __How can I contribute?__ 
 
 Contributions are always welcomed. Create a boilerplate / template for any other programming languages or you could also add any multistage builds which are not available in the repo by opening a pull request.For more information checkout the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
-## Contributors 😁💌
-
-<table>
-  <tr>
-  <td align="center"><a href="https://gauthamp10.github.io/"><img src="https://avatars1.githubusercontent.com/u/31800012?s=460&u=5a57d59caba193f2ffecce05fbf070084885966e&v=4" width="100px;" alt=""/><br /><sub><b>Gautham Prakash</b></sub></a><br /><a href="https://github.com/gauthamp10/dockerfile-boilerplates" title="Author">✍️</a></td>
-    <td align="center"><a href="https://github.com/joshuawalcher"><img src="https://avatars3.githubusercontent.com/u/2533702?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Joshua Walcher</b></sub></a><br /><a href="https://github.com/gauthamp10/dockerfile-boilerplates/pull/3/commits" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/RHabereder"><img src="https://avatars1.githubusercontent.com/u/9299404?s=460&u=c5d0dab2eb2fc22665db0311d193fcaff3fdd1f6&v=4" width="100px;" alt=""/><br /><sub><b>Raphael Habereder</b></sub></a><br /><a href="https://github.com/gauthamp10/dockerfile-boilerplates/pull/5/commits" title="Code">✍️</a></td>
-    <td align="center"><a href="https://github.com/NicolasCARPi"><img src="https://avatars2.githubusercontent.com/u/3043706?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Nicolas CARPi</b></sub></a><br /><a href="https://github.com/gauthamp10/dockerfile-boilerplates/commit/acd312c8dea5a50f06aa2cb9d73a44023853dbac" title="Code">✍️</a></td>
-    <td align="center"><a href="https://github.com/AlenJoseph"><img src="https://avatars3.githubusercontent.com/u/15855278?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Alen Joseph</b></sub></a><br /><a href="https://github.com/gauthamp10/dockerfile-boilerplates/commit/005b4e45da970972f2bcb3e3e1c7a195f46edefc" title="Code">✍️</a></td>
-    </tr>
-    </table>
 
 
-## __Author__
-
- **Gautham Prakash**
- 
-  My other projects: [github.com/gauthamp10](https://github.com/gauthamp10)
-
-  Website: [gauthamp10.github.io](https://gauthamp10.github.io)
-
-  Blog: [gauthamp10/blog](https://gauthamp10.github.io/blog)
 
 ## __License__  
 
