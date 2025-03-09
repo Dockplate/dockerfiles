@@ -8,22 +8,38 @@ on:
 jobs:
   update-data-json:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate folder list JSON
+      - name: Generate sorted folder list JSON
         run: |
-          FOLDERS=$(find . -maxdepth 1 -type d | sed 's|^\./||' | grep -vE '^(\.|\.\.|\.git|\.github|data)$' | jq -R -s -c 'split("\n")[:-1]')
+          # Find all folders, excluding .git, .github, and data
+          FOLDERS=$(find . -maxdepth 1 -type d | sed 's|^\./||' | grep -vE '^(\.|\.\.|\.git|\.github|data)$' | sort | jq -R -s -c 'split("\n")[:-1]')
+          
+          # Create data directory if it doesn't exist
           mkdir -p data
-          echo "$FOLDERS" > data/data.json
+
+          # Format JSON with indentation
+          echo "$FOLDERS" | jq '.' > data/data.json
+          
+          # Display generated JSON
           cat data/data.json
 
       - name: Commit and push changes
         run: |
+          # Configure Git user
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/data.json
-          git commit -m "Update data.json with folder list" || exit 0
-          git push
+
+          # Check for changes and commit if necessary
+          if [[ -n $(git status --porcelain) ]]; then
+            git add data/data.json
+            git commit -m "📂 Update data.json: Sorted folder list alphabetically"
+            git push
+          else
+            echo "No changes detected, skipping commit."
+          fi
